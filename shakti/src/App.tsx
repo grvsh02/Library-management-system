@@ -6,19 +6,24 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        Welcome to Librarian!
+        version 0.0.1
       </header>
+      <p>
+        This is a work in progress.
+        This is an Open Source webapp
+        for managing a library.
+      </p>
+      <p>
+        <a
+            className="App-link"
+            href="https://uxwing.com/wp-content/themes/uxwing/download/education-school/library-icon.svg"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+          Our Logo
+        </a>
+      </p>
     </div>
   );
 }
