@@ -59,6 +59,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'shivaya.urls'
 
+PHONENUMBER_DB_FORMAT = 'NATIONAL'
+PHONENUMBER_DEFAULT_REGION = 'US'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -82,7 +85,6 @@ WSGI_APPLICATION = 'shivaya.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-SECRET_KEY = 'django-insecure-6bfpa1&63ip88b758dzyc+bi_=jln-rdxz@pg3)qn-b4go0tfe'
 
 DATABASES = {
     'default': {
