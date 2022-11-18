@@ -78,6 +78,8 @@ WSGI_APPLICATION = 'shivaya.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+SECRET_KEY = 'django-insecure-6bfpa1&63ip88b758dzyc+bi_=jln-rdxz@pg3)qn-b4go0tfe'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
