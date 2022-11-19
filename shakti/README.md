@@ -25,3 +25,5 @@
 - [Gaurav Sharma](https://github.com/grvsh02) AM.EN.U4ELC21011
 - [Saumy Shukla](https://github.com/saumy4854) AM.EN.U4ELC21032
 - [Prashant Gehlot](https://github.com/Prashant9683) AM.EN.U4ELC21048
+
+### The project is currently under development. We will be adding more features to it soon.
