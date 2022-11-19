@@ -19,7 +19,7 @@
 - You are good to go!
 
 
-### The Members of the team are:
+## The Members of the team are:
 
 - [Yash Katyan](https://github.com/yakatyansh) AM.EN.U4ELC21044
 - [Gaurav Sharma](https://github.com/grvsh02) AM.EN.U4ELC21011
