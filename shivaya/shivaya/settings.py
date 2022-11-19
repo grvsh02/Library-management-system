@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "strawberry.django",
+    'user',
+    'main',
+    'book',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +58,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'shivaya.urls'
+
+PHONENUMBER_DB_FORMAT = 'NATIONAL'
+PHONENUMBER_DEFAULT_REGION = 'US'
 
 TEMPLATES = [
     {
@@ -77,6 +84,7 @@ WSGI_APPLICATION = 'shivaya.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
