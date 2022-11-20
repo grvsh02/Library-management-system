@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'user',
     'main',
     'book',
-    'graphene_django',
 ]
 
 MIDDLEWARE = [
