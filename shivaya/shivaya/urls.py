@@ -13,9 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.conf.urls.static import static
+from django.urls import path, include
+from strawberry.django.views import GraphQLView
+from shivaya.graphql import schema
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('graphql/', strawberry_auth_view(GraphQLView.as_view(schema=schema))),
 ]
+#+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# urlpatterns = [
+#     path('api/', include(urlpatterns))
+# ]
+
+admin.site.site_header = "LMS Admin"
+admin.site.site_title = "LMS Admin Portal"
+admin.site.index_title = "Welcome to Library Management System by Prashant"
