@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import Button from "./button";
 
 const NavBarContainer = styled('div')` 
@@ -38,7 +38,7 @@ const NavBar = () => {
                 <TabContainer>
                     {items?.map((item, index: any) => {
                         return (
-                            <Button className='m-2' onClick={() => setSelected(index)} type="selected">
+                            <Button className='m-2'  type="selected">
                                 {item}
                             </Button>
                         )

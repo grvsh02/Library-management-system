@@ -3,12 +3,12 @@ import styled from "@emotion/styled";
 import Button from "./button";
 
 type PageNavigator = {
-    totalcount: number;
-    itemsperpage: number;
+    totalCount: number;
+    itemsPerPage: number;
     setItemsPerPage: (count: number) => void;
     hideItemsPerPage?: boolean;
-    showcontrols?: boolean;
-    showedges?: boolean;
+    showControls?: boolean;
+    showEdges?: boolean;
     page: number,
     setPage: (no: number) => void,
     className?: string,
