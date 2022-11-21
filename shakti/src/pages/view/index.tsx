@@ -11,10 +11,10 @@ import { toast } from 'react-toastify';
 
 export interface dataProps {
     name: string;
-    lgnm: string;
-    gstin: string;
-    gstRegType: string;
-    rgdt: string;
+    Member_id: string;
+    IssuedBook: string;
+    Book_id: string;
+    IssueDate: string;
 }
 
 const ViewPage = () => {
@@ -31,24 +31,24 @@ const ViewPage = () => {
 
     const columns = [
         {
-            name: 'Legal Name',
-            selector: (row: { lgnm: any; }) => row.lgnm,
+            name: 'Member ID',
+            selector: (row: { Member_id: any; }) => row.Member_id,
         },
         {
-            name: 'Trade Name',
+            name: 'Member Name',
             selector: (row: { name: any; }) => row.name,
         },
         {
-            name: 'GST Number',
-            selector: (row: { gstin: any; }) => row.gstin,
+            name: 'Issued Book',
+            selector: (row: { IssuedBook: any; }) => row.IssuedBook,
         },
         {
-            name: 'Gst Type',
-            selector: (row: { gstRegType: any; }) => row.gstRegType,
+            name: 'Book ID',
+            selector: (row: { BookID: any; }) => row.BookID,
         },
         {
             name: 'Registration Date',
-            selector: (row: { rgdt: any; }) => row.rgdt,
+            selector: (row: { IssuedDate: any; }) => row.IssuedDate,
         },
         {
             name: 'Delete',
@@ -81,10 +81,10 @@ const ViewPage = () => {
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [items, setItems] = React.useState([{
         name: '',
-        lgnm: '',
-        gstin: '',
-        gstRegType: '',
-        rgdt: '',
+        Member_id: '',
+        IssuedBook: '',
+        BookID: '',
+        IssuedDate: '',
     }]);
     const [error, setError] = React.useState(null);
 
