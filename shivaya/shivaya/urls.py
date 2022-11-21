@@ -22,13 +22,12 @@ from shivaya.graphql import schema
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('graphql/', strawberry_auth_view(GraphQLView.as_view(schema=schema))),
-]
-#+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-# urlpatterns = [
-#     path('api/', include(urlpatterns))
-# ]
+urlpatterns = [
+    path('api/', include(urlpatterns))
+]
 
 admin.site.site_header = "LMS Admin"
 admin.site.site_title = "LMS Admin Portal"
