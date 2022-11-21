@@ -25,9 +25,9 @@ urlpatterns = [
     path('graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-urlpatterns = [
-    path('api/', include(urlpatterns))
-]
+# urlpatterns = [
+#     path('api/', include(urlpatterns))
+# ]
 
 admin.site.site_header = "LMS Admin"
 admin.site.site_title = "LMS Admin Portal"
