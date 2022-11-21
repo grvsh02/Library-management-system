@@ -128,8 +128,8 @@ const ViewPage = () => {
                 </div>
             </div>
             <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                <div className="text-2xl font-semibold">Delete GSTIN</div>
-                <div className="text-lg mt-5">Are you sure you want to delete this GSTIN?</div>
+                <div className="text-2xl font-semibold">Delete member</div>
+                <div className="text-lg mt-5">Are you sure you want to delete this Member?</div>
                 <div className="flex justify-end mt-10">
                     <Button className="mr-5" onClick={() => setIsOpen(false)}>Cancel</Button>
                     <Button className="bg-red-500" onClick={() => {handleDelete()}}>Delete</Button>
