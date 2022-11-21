@@ -89,12 +89,12 @@ const ViewPage = () => {
     const [error, setError] = React.useState(null);
 
     React.useEffect(() => {
-        fetch("https://test1.taxadda.com/api/gstin/?skip=0&limit=20&download=true&searchText&tags[]=628df7b40fedcce4178cb227&type=regular&user=prateek@test.com")
+        fetch("http://localhost:3000/api/view")
             .then(res => res.json())
             .then(
                 (result) => {
                     setIsLoaded(true);
-                    setItems(result.gstin);
+                    setItems(result.name);
                 },
                 (error) => {
                     console.log(error);
@@ -107,9 +107,9 @@ const ViewPage = () => {
     return (
         <div>
             <div className="m-10">
-                <div className="text-4xl font-semibold">All GSTINs</div>
+                <div className="text-4xl font-semibold">All Members</div>
                 <div className="w-full flex justify-between mt-10">
-                    <Link to="/add"><Button>Add GSTIN</Button></Link>
+                    <Link to="/add"><Button>Add Member</Button></Link>
                     <Searchbar/> {/* add onSearch parameter and add a function to call api for searching*/}
                     <Button><FontAwesomeIcon icon={faDownload} className="mt-1"/>Export as XLSX</Button>
                 </div>

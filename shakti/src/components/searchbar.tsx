@@ -10,7 +10,7 @@ type SearchbarProps = {
 const Searchbar = ({keyword, onSearch = () => {}}: SearchbarProps) => {
     return (
         <div className="w-2/5 h-12 flex bg-white relative">
-            <input className="min-w-full pl-8" onChange={() => onSearch} value={keyword} placeholder="Search by legal name, trade name or GST number"></input>
+            <input className="min-w-full pl-8" onChange={() => onSearch} value={keyword} placeholder="Search by Book Name Membername or memberID"></input>
             <FontAwesomeIcon icon={faSearch} className="absolute left-2 top-4"/>
         </div>
     )
