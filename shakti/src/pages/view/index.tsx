@@ -11,10 +11,10 @@ import { toast } from 'react-toastify';
 
 export interface dataProps {
     name: string;
-    lgnm: string;
-    gstin: string;
-    gstRegType: string;
-    rgdt: string;
+    Member_id: string;
+    IssuedBook: string;
+    Book_id: string;
+    IssueDate: string;
 }
 
 const ViewPage = () => {
@@ -31,24 +31,24 @@ const ViewPage = () => {
 
     const columns = [
         {
-            name: 'Legal Name',
-            selector: (row: { lgnm: any; }) => row.lgnm,
+            name: 'Member ID',
+            selector: (row: { Member_id: any; }) => row.Member_id,
         },
         {
-            name: 'Trade Name',
+            name: 'Member Name',
             selector: (row: { name: any; }) => row.name,
         },
         {
-            name: 'GST Number',
-            selector: (row: { gstin: any; }) => row.gstin,
+            name: 'Issued Book',
+            selector: (row: { IssuedBook: any; }) => row.IssuedBook,
         },
         {
-            name: 'Gst Type',
-            selector: (row: { gstRegType: any; }) => row.gstRegType,
+            name: 'Book ID',
+            selector: (row: { BookID: any; }) => row.BookID,
         },
         {
             name: 'Registration Date',
-            selector: (row: { rgdt: any; }) => row.rgdt,
+            selector: (row: { IssuedDate: any; }) => row.IssuedDate,
         },
         {
             name: 'Delete',
@@ -81,20 +81,20 @@ const ViewPage = () => {
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [items, setItems] = React.useState([{
         name: '',
-        lgnm: '',
-        gstin: '',
-        gstRegType: '',
-        rgdt: '',
+        Member_id: '',
+        IssuedBook: '',
+        BookID: '',
+        IssuedDate: '',
     }]);
     const [error, setError] = React.useState(null);
 
     React.useEffect(() => {
-        fetch("https://test1.taxadda.com/api/gstin/?skip=0&limit=20&download=true&searchText&tags[]=628df7b40fedcce4178cb227&type=regular&user=prateek@test.com")
+        fetch("http://localhost:3000/api/view")
             .then(res => res.json())
             .then(
                 (result) => {
                     setIsLoaded(true);
-                    setItems(result.gstin);
+                    setItems(result.name);
                 },
                 (error) => {
                     console.log(error);
@@ -107,9 +107,9 @@ const ViewPage = () => {
     return (
         <div>
             <div className="m-10">
-                <div className="text-4xl font-semibold">All GSTINs</div>
+                <div className="text-4xl font-semibold">All Members</div>
                 <div className="w-full flex justify-between mt-10">
-                    <Link to="/add"><Button>Add GSTIN</Button></Link>
+                    <Link to="/add"><Button>Add Member</Button></Link>
                     <Searchbar/> {/* add onSearch parameter and add a function to call api for searching*/}
                     <Button><FontAwesomeIcon icon={faDownload} className="mt-1"/>Export as XLSX</Button>
                 </div>
@@ -128,8 +128,8 @@ const ViewPage = () => {
                 </div>
             </div>
             <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                <div className="text-2xl font-semibold">Delete GSTIN</div>
-                <div className="text-lg mt-5">Are you sure you want to delete this GSTIN?</div>
+                <div className="text-2xl font-semibold">Delete member</div>
+                <div className="text-lg mt-5">Are you sure you want to delete this Member?</div>
                 <div className="flex justify-end mt-10">
                     <Button className="mr-5" onClick={() => setIsOpen(false)}>Cancel</Button>
                     <Button className="bg-red-500" onClick={() => {handleDelete()}}>Delete</Button>
