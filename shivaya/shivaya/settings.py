@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'strawberry.django',
-    'graphene_django',
     'user',
     'main',
     'book',
@@ -116,11 +115,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-GRAPHENE = {
-    "SCHEMA":  "schema.schema"
-}
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
