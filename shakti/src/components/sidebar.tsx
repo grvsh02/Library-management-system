@@ -22,10 +22,10 @@ const SidebarContainer = styled('div')`
 const Sidebar = () => {
     return (
         <SidebarContainer>
-            <ul>
-                <li><div className="h-16 w-72 flex justify-center items-center font-bold text-4xl bg-[#111827]">Application</div></li>
-                <li><div className="flex justify-center h-12 items-center"><Link to="/"><span><FontAwesomeIcon icon={faHome} size={'1x'}/></span><span className="ml-2">Home</span></Link></div></li>
-                <li><div className="flex justify-center h-12 items-center"><Link to="/add"><span><FontAwesomeIcon icon={faAdd} size={'1x'}/></span><span className="ml-3">Add</span></Link></div></li>
+            <ul className=" py-10 flex flex-col justify-center align-middle font-bold ">
+                <li><div className="text-4xl py-8 ">LMS</div></li>
+                <li><div className="h-12 items-center"><Link to="/"><span><FontAwesomeIcon icon={faHome} size={'1x'}/></span><span className="ml-2">Home</span></Link></div></li>
+                <li><div className="h-12 items-center"><Link to="/add"><span><FontAwesomeIcon icon={faAdd} size={'1x'}/></span><span className="ml-3">Add</span></Link></div></li>
             </ul>
         </SidebarContainer>
     );
