@@ -36,16 +36,16 @@ const AddPage = () => {
             <div className="w-1/3 pl-10 pt-5 items-center">
                 <div className="">
                     <div className="mb-8">
-                        <div className="text-xl font-bold m-2">Add Client</div>
+                        <div className="text-xl font-bold m-2">Add Member</div>
                         <div className="m-2">
-                            Enter the Gst number of the client.<br/>
-                            You can add GST number which has GST type as Regular and Composition.
+                            Enter the memberID of the member<br/>
+                            You can also add name and tags
                         </div>
                     </div>
                     <div className="mb-4">
                         <div className="text-xl font-bold m-2">Here are your Plan details</div>
                         <div className="m-2">
-                            Available GSTIN credits - 319 <br/>
+                            Available Member credits - 69 <br/>
                             Expiry date - 31st March 2021<br/>
                         </div>
                     </div>
@@ -54,7 +54,7 @@ const AddPage = () => {
             <div className="w-2/3 h-full">
                 <Card className="m-5">
                     <div className="p-10 align-middle h-full">
-                        <LabelTextInput label="Enter one or more GSTIN to import" type="text" className="mt-10" placeholder="Enter GSTIN numbers"/>
+                        <LabelTextInput label="Enter one or more Members to import" type="text" className="mt-10" placeholder="Enter GSTIN numbers"/>
                         <Dropdown
                             label="Select Tag"
                             className="mt-10"
@@ -64,10 +64,10 @@ const AddPage = () => {
                             buttonText="Add +"
                             onButtonClick={() => {setIsOpen(true)}}
                         />
-                        <div className="mt-10">
-                            Paste all the client GSTIN in the box which you like to import. Each GSTIN should be in a new line.<br/>
-                            QRMP prefrences along with GST return status from Jan 2021 till date will be imported automatically.
-                        </div>
+                        {/*<div className="mt-10">*/}
+                        {/*    Paste all the client GSTIN in the box which you like to import. Each GSTIN should be in a new line.<br/>*/}
+                        {/*    QRMP prefrences along with GST return status from Jan 2021 till date will be imported automatically.*/}
+                        {/*</div>*/}
                     </div>
                     <div className="flex justify-end">
                         <Button className='m-2' onClick={handleSave}>
