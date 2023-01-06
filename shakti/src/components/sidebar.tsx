@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "@emotion/styled";
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faAdd, faHome} from "@fortawesome/free-solid-svg-icons";
+import {faAdd, faHome,faBook} from "@fortawesome/free-solid-svg-icons";
 
 const SidebarContainer = styled('div')`
     position: fixed;  
@@ -23,9 +23,11 @@ const Sidebar = () => {
     return (
         <SidebarContainer>
             <ul className=" py-10 flex flex-col justify-center align-middle font-bold ">
-                <li><div className="text-4xl py-8 ">LMS</div></li>
+                <li><div className="text-4xl py-10 pb-16 ">LMS</div></li>
                 <li><div className="h-12 items-center"><Link to="/"><span><FontAwesomeIcon icon={faHome} size={'1x'}/></span><span className="ml-2">Home</span></Link></div></li>
-                <li><div className="h-12 items-center"><Link to="/add"><span><FontAwesomeIcon icon={faAdd} size={'1x'}/></span><span className="ml-3">Add</span></Link></div></li>
+                <li><div className="h-12 items-center"><Link to="/issue"><span><FontAwesomeIcon icon={faBook} size={'1x'}/></span><span className="ml-2">Issue Book</span></Link></div></li>
+                <li><div className="h-12 items-center"><Link to="/add"><span><FontAwesomeIcon icon={faAdd} size={'1x'}/></span><span className="ml-2">Add Book</span></Link></div></li>
+                <li><div className="h-12 items-center"><Link to="/issue"><span><FontAwesomeIcon icon={faBook} size={'1x'}/></span><span className="ml-2">Entry System</span></Link></div></li>
             </ul>
         </SidebarContainer>
     );
