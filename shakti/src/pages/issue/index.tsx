@@ -3,6 +3,20 @@ import styled from "@emotion/styled";
 import {useNavigate} from "react-router-dom";
 import DataTable from 'react-data-table-component';
 
+
+const customstyles = {
+    headRow: {
+        style: {
+            fontWeight: 'bold',
+            fontSize: '15px',
+            minHeight: '52px',
+            borderBottomWidth: '8px',
+            borderBottomStyle: 'solid',
+        },
+    },
+};
+
+
 const columns = [
     {
         name: 'Book Name',
@@ -73,7 +87,7 @@ const issue = () => {
                 Check your inventory and make your book issuing management simple
             </div>
             <div>
-                <DataTable columns={columns} data={data} responsive pagination/>
+                <DataTable columns={columns} data={data} responsive pagination customStyles={customstyles}/>
             </div>
         </div>
     );
