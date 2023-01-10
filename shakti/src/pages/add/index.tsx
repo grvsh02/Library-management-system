@@ -39,17 +39,24 @@ const AddPage = () => {
            <div className="py-10">
                 Here you can add a new book to the library, Grow your inventory and make your library more diverse
            </div>
-           <form>
-               <label>Enter the book name:
+              <div className="flex flex-col">
+           <form className="flex flex-col py-10">
+               <label className="py-10">Enter the book name:
                    <input type="text" />
                </label>
-               <label>Enter the author name:
+               <label className="py-10">Enter the author name:
                    <input type="text" />
                </label>
-                <label>Enter the quantity:
+               <label className="py-10">Enter the quantity:
                      <input type="number" />
                 </label>
            </form>
+
+           <Button onClick={() => console.log("Book added")} className="xs">
+                Add Book
+           </Button>
+                  </div>
+
 
        </div>
     );
