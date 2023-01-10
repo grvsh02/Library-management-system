@@ -5,7 +5,7 @@ import Button from "./button";
 const NavBarContainer = styled('div')` 
   height: 64px;
   width: 100%;
-  background: darkblue;
+  background: #202937;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: row;
@@ -16,6 +16,8 @@ const NavBarContainer = styled('div')`
 
 const TabContainer = styled('div')`
     display: flex;
+  flex-direction: row;
+  gap: 1rem;
 `;
 
 const NavIcons = styled('div')`
@@ -29,20 +31,19 @@ const Logo = styled('div')`
   }
 `;
 
-const items = ["Manage your Librarian"]
+const items = ["Login","Signup"]
 
 const NavBar = () => {
     return (
         <NavBarContainer>
             <div>
                 <TabContainer>
-                    {items?.map((item, index: any) => {
-                        return (
-                            <Button className='m-2'  type="selected">
-                                {item}
-                            </Button>
-                        )
-                    })}
+                    <Button className='xs'  type="primary">
+                        Login
+                    </Button>
+                    <Button className='xs'  type="primary">
+                        Signup
+                    </Button>
                 </TabContainer>
             </div>
         </NavBarContainer>

@@ -21,7 +21,7 @@ type ButtonContainerProps = {
 }
 
 const ButtonContainer = styled('span')<ButtonContainerProps>`
-  background: #5146e6;
+  background: #afafff;
   color: #fff;
   border-radius: 0.3125rem;
   display: ${props => props.inline ? 'inline-block' : 'flex'};

@@ -32,59 +32,26 @@ const AddPage = () => {
     }
 
     return (
-        <div className="flex flex-row h-full">
-            <div className="w-1/3 pl-10 pt-5 items-center">
-                <div className="">
-                    <div className="mb-8">
-                        <div className="text-xl font-bold m-2">Add Member</div>
-                        <div className="m-2">
-                            Enter the memberID of the member<br/>
-                            You can also add name and tags
-                        </div>
-                    </div>
-                    <div className="mb-4">
-                        <div className="text-xl font-bold m-2">Here are your Plan details</div>
-                        <div className="m-2">
-                            Available Member credits - 69 <br/>
-                            Expiry date - 31st March 2021<br/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="w-2/3 h-full">
-                <Card className="m-5">
-                    <div className="p-10 align-middle h-full">
-                        <LabelTextInput label="Enter one or more Members to import" type="text" className="mt-10" placeholder="Enter GSTIN numbers"/>
-                        <Dropdown
-                            label="Select Tag"
-                            className="mt-10"
-                            placeholder="Showing All Tags"
-                            items={[{"name": "sample"},{"name": "URLs"}]}
-                            hasButton={true}
-                            buttonText="Add +"
-                            onButtonClick={() => {setIsOpen(true)}}
-                        />
-                        {/*<div className="mt-10">*/}
-                        {/*    Paste all the client GSTIN in the box which you like to import. Each GSTIN should be in a new line.<br/>*/}
-                        {/*    QRMP prefrences along with GST return status from Jan 2021 till date will be imported automatically.*/}
-                        {/*</div>*/}
-                    </div>
-                    <div className="flex justify-end">
-                        <Button className='m-2' onClick={handleSave}>
-                            Save Multiple GSTIN
-                        </Button>
-                    </div>
-                </Card>
-            </div>
-            <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                <div className="text-2xl font-semibold">Add Tags</div>
-                <div className="text-lg mt-5"><TagsInput/></div>
-                <div className="flex justify-end mt-10">
-                    <Button className="mr-5" onClick={() => setIsOpen(false)}>Cancel</Button>
-                    <Button className="bg-red-500" onClick={() => {handleAdd()}}>Add</Button>
-                </div>
-            </Modal>
-        </div>
+       <div>
+           <div className="text-5xl py-10 text-blue-900">
+               Add Book
+           </div>
+           <div className="py-10">
+                Here you can add a new book to the library, Grow your inventory and make your library more diverse
+           </div>
+           <form>
+               <label>Enter the book name:
+                   <input type="text" />
+               </label>
+               <label>Enter the author name:
+                   <input type="text" />
+               </label>
+                <label>Enter the quantity:
+                     <input type="number" />
+                </label>
+           </form>
+
+       </div>
     );
 }
 
