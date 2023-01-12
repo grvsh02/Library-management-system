@@ -40,24 +40,79 @@ const AddPage = () => {
                 Here you can add a new book to the library, Grow your inventory and make your library more diverse
            </div>
               <div className="flex flex-col">
-           <form className="flex flex-col py-10">
-               <label className="py-10">Enter the book name:
-                   <input type="text" />
-               </label>
-               <label className="py-10">Enter the author name:
-                   <input type="text" />
-               </label>
-               <label className="py-10">Enter the quantity:
-                     <input type="number" />
-                </label>
+                  <form className="mt-6">
+                      <div className="mb-2">
+                          <label>
+                              <span className="text-gray-700">Book Name</span>
+                              <input
+                                  type="text"
+                                  name="name"
+                                  className="
+
+            w-full
+            block px-16 py-2 mt-2
+            border-gray-300
+            rounded-md
+            shadow-sm
+            focus:border-indigo-300
+            focus:ring
+            focus:ring-indigo-200
+            focus:ring-opacity-50
+          "
+                                  placeholder="John cooks"
+                              />
+                          </label>
+                      </div>
+                          <div className="mb-2">
+                              <label>
+                                  <span className="text-gray-700">Author</span>
+                                  <input
+                                      type="text"
+                                      name="name"
+                                      className="
+
+            w-full
+            block px-16 py-2 mt-2
+            border-gray-300
+            rounded-md
+            shadow-sm
+            focus:border-indigo-300
+            focus:ring
+            focus:ring-indigo-200
+            focus:ring-opacity-50
+          "
+                                      placeholder="John cooks"
+                                  />
+                              </label>
+                          </div>
+                          <div className="mb-2">
+                              <label>
+                                  <span className="text-gray-700">Quantity</span>
+                                  <input
+                                      type="number"
+                                      name="name"
+                                      className="
+
+            w-full
+            block px-16 py-2 mt-2
+            border-gray-300
+            rounded-md
+            shadow-sm
+            focus:border-indigo-300
+            focus:ring
+            focus:ring-indigo-200
+            focus:ring-opacity-50
+          "
+                                      placeholder="John cooks"
+                                  />
+                              </label>
+                          </div>
            </form>
 
            <Button onClick={() => console.log("Book added")} className="xs">
                 Add Book
            </Button>
                   </div>
-
-
        </div>
     );
 }
