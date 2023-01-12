@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from "@emotion/styled";
 import Button from "./button";
+import {Link} from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faAdd, faBook, faHome} from "@fortawesome/free-solid-svg-icons";
 
 const NavBarContainer = styled('div')` 
   height: 64px;
@@ -31,19 +34,16 @@ const Logo = styled('div')`
   }
 `;
 
-const items = ["Login","Signup"]
 
 const NavBar = () => {
     return (
         <NavBarContainer>
             <div>
                 <TabContainer>
-                    <Button className='xs'  type="primary">
-                        Login
-                    </Button>
-                    <Button className='xs'  type="primary">
-                        Signup
-                    </Button>
+                    <ul className=" pt-5 px-10 flex flex-row justify-center align-middle font-bold text-white">
+                        <li><div className="h-12 items-center"><Link to="/login"><span className="ml-2">Login</span></Link></div></li>
+                        <li><div className="h-12 items-center"><Link to="/signup"><span className="ml-2">Signup</span></Link></div></li>
+                    </ul>
                 </TabContainer>
             </div>
         </NavBarContainer>
