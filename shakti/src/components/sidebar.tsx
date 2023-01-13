@@ -28,8 +28,8 @@ const Sidebar = () => {
                 <li><div className="h-12 items-center"><Link to="/issue"><span><FontAwesomeIcon icon={faBook} size={'1x'}/></span><span className="ml-2">Issue Book</span></Link></div></li>
                 <li><div className="h-12 items-center"><Link to="/add"><span><FontAwesomeIcon icon={faAdd} size={'1x'}/></span><span className="ml-2">Add Book</span></Link></div></li>
                 <li><div className="h-12 items-center"><Link to="/issue"><span><FontAwesomeIcon icon={faBook} size={'1x'}/></span><span className="ml-2">Entry System</span></Link></div></li>
-                <li><div className="h-12 items-center"><Link to="/issue"><span><FontAwesomeIcon icon={faBook} size={'1x'}/></span><span className="ml-2">Entry System</span></Link></div></li>
-                <li><div className="h-12 items-center"><Link to="/issue"><span><FontAwesomeIcon icon={faBook} size={'1x'}/></span><span className="ml-2">Entry System</span></Link></div></li>
+                <li><div className="h-12 items-center"><Link to="/issue"><span><FontAwesomeIcon icon={faBook} size={'1x'}/></span><span className="ml-2">Manage Admin</span></Link></div></li>
+                <li><div className="h-12 items-center"><Link to="/issue"><span><FontAwesomeIcon icon={faBook} size={'1x'}/></span><span className="ml-2">Manage Fine</span></Link></div></li>
 
             </ul>
         </SidebarContainer>
