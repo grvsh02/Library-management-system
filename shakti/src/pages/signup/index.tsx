@@ -16,7 +16,6 @@ const Signup = () => {
     // }
     // `
 
-    const signUp = () => {
 
         //     if (confirmPassword !== password) {
         //         alert("Passwords do not match");
@@ -110,7 +109,7 @@ const Signup = () => {
 
                         </div>
                         <div className="mt-6">
-                            <button onClick={() => signUp()}
+                            <button onClick={() => console.log("signup")}
                                     className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#ff4c68] rounded-md hover:bg-rose-600 focus:outline-none focus:bg-[#ff4c68]">
                                 Sign up
                             </button>
@@ -171,6 +170,5 @@ const Signup = () => {
             </div>
         );
     }
-}
 
 export default Signup;

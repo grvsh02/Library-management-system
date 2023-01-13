@@ -13,8 +13,8 @@ const Main = () => {
             <Route path='/add' element={<AddPage/>}></Route>
             <Route path='/' element={<ViewPage/>}></Route>
             <Route path='/issue' element={<Issue/>}></Route>
-            {/*<Route path='/login' element={<Login/>}></Route>*/}
-            {/*<Route path='/signup' element={<Signup/>}></Route>*/}
+            <Route path='/login' element={<Login/>}></Route>
+            <Route path='/signup' element={<Signup/>}></Route>
         </Routes>
     );
 }

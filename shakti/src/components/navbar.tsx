@@ -41,8 +41,8 @@ const NavBar = () => {
             <div>
                 <TabContainer>
                     <ul className=" pt-5 px-10 flex flex-row justify-center align-middle font-bold text-white">
-                        <li><div className="h-12 items-center"><Link to="/login"><span className="ml-2">Login</span></Link></div></li>
-                        <li><div className="h-12 items-center"><Link to="/signup"><span className="ml-2">Signup</span></Link></div></li>
+                        <li><div className="h-12 px-1.5 items-center"><Link to="/login"><span className="ml-2">Login</span></Link></div></li>
+                        <li><div className="h-12 px-1.5 items-center"><Link to="/signup"><span className="ml-2">Signup</span></Link></div></li>
                     </ul>
                 </TabContainer>
             </div>

@@ -7,6 +7,8 @@ import Modal from "../../components/modal";
 import TagsInput from "../../components/taginput";
 import {toast} from "react-toastify";
 import  { useNavigate } from 'react-router-dom'
+import NavBar from "../../components/navbar";
+import Sidebar from "../../components/sidebar";
 
 
 const AddPage = () => {
@@ -32,7 +34,8 @@ const AddPage = () => {
     }
 
     return (
-       <div>
+        <div className="bg-gray-200 flex flex-col w-full min-h-screen">
+            <NavBar/>
            <div className="text-5xl py-10 text-blue-900">
                Add Book
            </div>
