@@ -22,9 +22,7 @@ from shivaya.graphql.schema import schema
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('book.urls')),
+    # path('', include('main.urls')),
     path('graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-urlpatterns = [
-    path('api/', include(urlpatterns))
-]
