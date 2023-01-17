@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'strawberry.django',
     'user',
-    'main',
     'book',
 ]
 

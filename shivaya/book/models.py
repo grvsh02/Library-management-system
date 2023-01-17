@@ -1,15 +1,44 @@
 from django.db import models
-from datetime import datetime, timedelta
-from user.models import Student
+from datetime import datetime,timedelta
+import uuid
+
+class Students(models.Model):
+    roll_number = models.CharField(max_length=100,unique=True)
+    fullname = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
+    program = models.CharField(max_length=100)
+    Guardian_name=models.CharField(max_length=100,help_text="parent/guardian full name")
+    Email=models.EmailField(max_length=100,help_text="Guardian/parent e-mail")
+    def __str__(self):
+        return self.fullname
 
 class Book(models.Model):
-    id = models.AutoField(primary_key=True, help_text='Unique ID')
-    book_name = models.CharField(max_length=100, verbose_name='Book Name', null=False, blank=False)
-    book_id = models.IntegerField(unique=True, help_text='Unique ID', verbose_name='Book ID', null=False, blank=False)
-    author = models.CharField(max_length=100, verbose_name='Author', null=False, blank=False)
-    is_borrowed = models.BooleanField(default=False, help_text='Is the book borrowed?', null=False, blank=False)
-    summary = models.TextField(max_length=1000, help_text='Summary of the book', null=True, blank=True)
-    cost = models.PositiveIntegerField(default=100, help_text='Cost of the book', null=False, blank=False)
-    in_stock = models.PositiveIntegerField(default=1, help_text='Number of books in stock', null=False, blank=False)
+    book_title = models.CharField(max_length=200, null=True, blank=True)
+    book_author = models.CharField(max_length=100, null=True, blank=True)
+    book_pages = models.PositiveIntegerField(null=True, blank=True)
+    summary=models.TextField(max_length=500, help_text="Summary about the book",null=True,blank=True)
     def __str__(self):
-        return self.book_name
+        return self.book_title
+
+class BookInstance(models.Model):
+    id=models.UUIDField(primary_key=True,default=uuid.uuid4,help_text="Book unique id across the Library")
+    book=models.ForeignKey('Book', on_delete=models.CASCADE,null=True)
+    book_number=models.PositiveIntegerField(null=True,help_text="Book number for books of the save kind")
+    Is_borrowed = models.BooleanField(default=False)
+    def __str__(self):
+        return f"{self.id} {self.book}"
+
+def get_returndate():
+    return datetime.today() + timedelta(days=8)
+
+class Book_Issue(models.Model):
+    student = models.ForeignKey('Students', on_delete=models.CASCADE)
+    book_instance = models.ForeignKey('BookInstance', on_delete=models.CASCADE)
+    issue_date = models.DateTimeField(auto_now=True,help_text="Date the book is issued")
+    due_date = models.DateTimeField(default=get_returndate(),help_text="Date the book is due to")
+    date_returned=models.DateField(null=True, blank=True,help_text="Date the book is returned")
+    remarks_on_issue = models.CharField(max_length=100, default="Book in good condition", help_text="Book remarks/condition during issue")
+    remarks_on_return = models.CharField(max_length=100, default="Book in good condition", help_text="Book remarks/condition during return")
+
+    def __str__(self):
+        return self.student.fullname + " borrowed " + self.book.book_title

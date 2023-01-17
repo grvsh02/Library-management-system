@@ -24,10 +24,11 @@
     <a href="#" class="logo"> <i class="fa-solid fa-book"></i> LMS </a>
 
     <nav class="navbar">
-        <a href="#home">home</a>
-        <a href="#about">about</a>
-        <a href="#book">book</a>
-        <a href="#students">student</a>
+        <a href="http://127.0.0.1:8000">home</a>
+        <a href="http://127.0.0.1:8000/add_new_book">add books</a>
+        <a href="http://127.0.0.1:8000/view_books">book</a>
+        <a href="http://127.0.0.1:8000/add_new_student">add students</a>
+        <a href="http://127.0.0.1:8000/show_students">student</a>
     </nav>
 
     <div id="menu-btn" class="fas fa-bars"></div>
@@ -121,7 +122,7 @@
         </div>
 
         <div class="box">
-            <img src="{% static "image/Yash.png" %}" alt="">
+            <img src="{% static "image/Satrudhan.jpg" %}" alt="">
             <h3>Satrudhan Kumar Chauhan</h3>
             <span>S3 Student</span>
             <div class="share">
@@ -145,6 +146,7 @@
 
         <form action="">
             <h3>request for book</h3>
+            <input type="text" placeholder="Book Title" class="box">
             <input type="text" placeholder="Your Name" class="box">
             <input type="number" placeholder="Your Roll-Number" class="box">
             <input type="email" placeholder="Your Email" class="box">

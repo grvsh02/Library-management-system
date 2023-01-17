@@ -1,3 +1,46 @@
+.search {
+    margin: 10px;
+    padding: 5px;
+}
+
+table {
+    margin: 10px;
+    width: 100%;
+}
+
+.table th {
+    text-align: start;
+    font-size: large;
+}
+
+.book_row td {
+    text-align: start;
+    font-size: large;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+#book_searched {
+    display: none;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
 :root{
@@ -247,7 +290,7 @@ section:nth-child(even){
 }
 
 .book .row{
-    width: max-content;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -281,7 +324,30 @@ section:nth-child(even){
 .book .row form .box{
     width: 100%;
     margin:.7rem 0;
-    border-bottom: 0.005px solid blue;
+    border: 0.0000000001px solid blue;
+    border-radius: 5rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+}
+
+.book .row form .box input {
+    width: 98%;
+    padding: 0;
+    margin: 0;
+    height: 2rem;
+}
+
+.book .row form .box textarea {
+    width: 95%;
+    padding: 0;
+    margin: 20px 20px 20px 20px;
+    height: 20rem;
+}
+
+.label-box {
+    width: 100%;
+    margin:.7rem 0;
     font-size: 1.6rem;
     color: var(--black);
     text-transform: none;

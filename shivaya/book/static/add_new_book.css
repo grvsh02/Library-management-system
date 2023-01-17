@@ -247,7 +247,7 @@ section:nth-child(even){
 }
 
 .book .row{
-    width: max-content;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -281,7 +281,30 @@ section:nth-child(even){
 .book .row form .box{
     width: 100%;
     margin:.7rem 0;
-    border-bottom: 0.005px solid blue;
+    border: 0.0000000001px solid blue;
+    border-radius: 5rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+}
+
+.book .row form .box input {
+    width: 98%;
+    padding: 0;
+    margin: 0;
+    height: 2rem;
+}
+
+.book .row form .box textarea {
+    width: 95%;
+    padding: 0;
+    margin: 20px 20px 20px 20px;
+    height: 20rem;
+}
+
+.label-box {
+    width: 100%;
+    margin:.7rem 0;
     font-size: 1.6rem;
     color: var(--black);
     text-transform: none;

@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS</title>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <link rel="stylesheet" href="{% static 'add_new_book.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+    <script src="https://kit.fontawesome.com/1b5555827c.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    
+{% block content %}
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fa-solid fa-book"></i> LMS </a>
+
+    <nav class="navbar">
+        <a href="http://127.0.0.1:8000">home</a>
+        <a href="http://127.0.0.1:8000/add_new_book">add books</a>
+        <a href="http://127.0.0.1:8000/view_books">book</a>
+        <a href="http://127.0.0.1:8000/add_new_student">add students</a>
+        <a href="http://127.0.0.1:8000/show_students">student</a>
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>Add Students</h3>
+        <p>Add students to your database by just adding simple basic details.</p>
+    </div>
+
+</section>
+<section class="book" id="book">
+    <div class="row">
+        <form method="POST" action="add_new_student" >
+            {% csrf_token %}
+            <label class="label-box">Roll Number:</label><br><div class="box">{{form.roll_number}}</div>
+            <label class="label-box">Student Name:</label><br> <div class="box"> {{form.fullname}}</div>
+            <label class="label-box">Student Address:</label><br> <div class="box"> {{form.address}}</div>
+            <label class="label-box">Student Study Program:</label><br> <div class="box">{{form.program}}</div><br>
+            <label class="label-box">Student Guardian/Parent Details</label><br><br><br>
+
+            <label class="label-box">Full name:</label><br> <div class="box">{{form.Guardian_name}}</div>
+            <label class="label-box">Valid Email:</label><br> <div class="box">{{form.Email}}</div>
+            <br> <button type="submit" class="btn">Add Student</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+</body>
+</html>
