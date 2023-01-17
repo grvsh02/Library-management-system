@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS</title>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+    <script src="https://kit.fontawesome.com/1b5555827c.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fa-solid fa-book"></i> LMS </a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#book">book</a>
+        <a href="#students">student</a>
+    </nav>
+
+</header>
+
+<div id="menu-btn" class="fas fa-bars"></div>  
+
+<section class="home" id="home">
+
+    <div class="content">
+
+        <h3>Add To The catalog</h3>
+        <p>Add books to your database by just adding simple basic details.</p>
+
+    </div>
+
+</section>
+
+<section class="book" id="book">
+
+    <h1 class="heading"> <span>ADD</span> BOOK </h1>    
+
+    <div class="row">
+
+        <form action="post">
+            <h3>Add Book</h3>
+            <input type="text" placeholder="Book Name" class="box">
+            <input type="number" placeholder="ISBN" class="box">
+            <input type="text" placeholder="Author" class="box">
+            <input type="text" placeholder="Category" class="box">
+            <input type="number" placeholder="Price" class="box">
+            <input type="submit" value="Add to catalog" class="btn">
+        </form>
+
+    </div>
+
+</section>
+
+
+
+</body>
+</html>
