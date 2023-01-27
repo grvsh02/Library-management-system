@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Books(models.Model):
-    book_id = models.AutoField(primary_key=True)
+    book_id = models.AutoField(primary_key=True, default=None)
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     stock = models.IntegerField(default=1)
@@ -32,7 +32,7 @@ class UserRole(models.Model):
 
 
 class Library(models.Model):
-    transaction_id = models.AutoField(primary_key=True)
+    transaction_id = models.AutoField(primary_key=True, default=None)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     book = models.ForeignKey(Books, on_delete=models.CASCADE)
     issued_on = models.DateTimeField(auto_now_add=True)
