@@ -66,6 +66,14 @@ class UserVisit(models.Model):
     def __str__(self):
         return self.user.username + ' ' + str(self.visit_date)
 
+    def __dict__(self):
+        return {
+            'user': self.user.username,
+            'visit_date': self.visit_date,
+            'time_in': self.time_in,
+            'time_out': self.time_out
+        }
+
 
 class UserFine(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

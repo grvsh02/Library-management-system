@@ -122,6 +122,7 @@ def issue_book(request):
     except Exception as e:
         return JsonResponse({'status': 400, 'message': 'Error issuing book: ' + str(e)})
 
+
 def return_book(request):
     req = json.loads(request.body)
     try:
@@ -151,7 +152,9 @@ def get_user_history(request):
         user = User.objects.get(id=user_id)
         library = Library.objects.filter(user=user)
         library = [lib.__dict__ for lib in library]
-        return JsonResponse({'status': 201, 'message': 'User history fetched successfully', 'history': library})
+        userVisits = UserVisit.objects.filter(user=user)
+        userVisits = [userVisit.__dict__ for userVisit in userVisits]
+        return JsonResponse({'status': 201, 'message': 'User history fetched successfully', 'book_history': library, 'user_visit_history': userVisits})
     except Exception as e:
         return JsonResponse({'status': 400, 'message': 'Error fetching user history: ' + str(e)})
 
