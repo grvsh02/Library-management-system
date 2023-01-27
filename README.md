@@ -1,4 +1,6 @@
-<img src="https://api.products.aspose.app/slides/api/Common/DownloadFile/1638ebb5-7f5f-401f-b95b-581dbab15f06?file=result.gif">  <img src="https://media.giphy.com/media/WQy7RZN5bkExAfYUgU/giphy.gif" width="175" height="70">
+# Library management system
+<br>
+
 #### An interactive website for automating various manual processes done by user with help of Object Oriented Programming in Python.
 
 ## The Team
