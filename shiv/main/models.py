@@ -7,18 +7,20 @@ class Books(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     stock = models.IntegerField(default=1)
+    total_stock = models.IntegerField(default=0)
     price = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
 
-    def __dict__(self):
+    def dict(self):
         return {
             'book_id': self.book_id,
             'title': self.title,
             'author': self.author,
             'stock': self.stock,
-            'price': self.price
+            'price': self.price,
+            'total_stock': self.total_stock
         }
 
 
@@ -44,7 +46,7 @@ class Library(models.Model):
     def __str__(self):
         return self.user.username + ' ' + self.book.title
 
-    def __dict__(self):
+    def dict(self):
         return {
             'transaction_id': self.transaction_id,
             'user': self.user.username,
@@ -66,7 +68,7 @@ class UserVisit(models.Model):
     def __str__(self):
         return self.user.username + ' ' + str(self.visit_date)
 
-    def __dict__(self):
+    def dict(self):
         return {
             'user': self.user.username,
             'visit_date': self.visit_date,
