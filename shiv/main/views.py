@@ -22,7 +22,7 @@ def add_book(request):
     except Exception as e:
         return JsonResponse({'status': 400, 'message': 'Error adding book: ' + str(e)})
 
-
+@csrf_exempt
 def remove_book(request):
     req = json.loads(request.body)
     try:
@@ -33,7 +33,7 @@ def remove_book(request):
     except Exception as e:
         return JsonResponse({'status': 400, 'message': 'Error removing book: ' + str(e)})
 
-
+@csrf_exempt
 def update_book(request):
     req = json.loads(request.body)
     try:
