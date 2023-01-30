@@ -43,24 +43,24 @@ const BooksTable = ({keyword = ""}) => {
 
     const columns = [
         {
-            name: 'Name',
-            selector: (row: any) => row.firstName + ' ' + row.lastName,
+            name: 'Title',
+            selector: (row: any) => row.title,
         },
         {
-            name: 'Email',
-            selector: (row: any) => row.email,
+            name: 'Author',
+            selector: (row: any) => row.author,
         },
         {
-            name: 'Phone No.',
-            selector: (row: any) => row.phone,
+            name: 'Price',
+            selector: (row: any) => row.price,
         },
         {
-            name: 'Role',
-            selector: (row: any) => row.role,
+            name: 'Total stock',
+            selector: (row: any) => row.total_stock,
         },
         {
-            name: 'Registration Date',
-            selector: (row: any) => row.createdAt,
+            name: 'current stock',
+            selector: (row: any) => row.stock,
         },
         {
             name: 'Banned',

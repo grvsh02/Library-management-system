@@ -4,6 +4,8 @@ import Searchbar from "@/src/common/components/searchbar";
 
 import UserTable from "@/src/common/components/table";
 import Layout from "@/src/common/components/layout";
+import Button from "@/src/common/components/button";
+import {router} from "next/client";
 
 const ViewPage = () => {
 
@@ -19,7 +21,9 @@ const ViewPage = () => {
                 <div className="m-10">
                     <div className="text-4xl font-semibold">All Books</div>
                     <div className="w-full flex justify-between mt-10">
+                        <Button onClick={() => {router.push("/books/add")}}>Add Books</Button>
                         <Searchbar onSearch={setKeyword}/> {/* add onSearch parameter and add a function to call api for searching*/}
+                        <Button>Export as XLSX</Button>
                     </div>
                     <div>
                         <Card className="mt-10 p-5">

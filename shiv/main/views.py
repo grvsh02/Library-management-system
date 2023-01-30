@@ -3,10 +3,12 @@ from datetime import datetime, timedelta, timezone
 
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from main.models import Books, UserVisit, Library
 
 
+@csrf_exempt
 def add_book(request):
     req = json.loads(request.body)
     try:
@@ -14,7 +16,7 @@ def add_book(request):
         author = req['author']
         stock = req['stock']
         price = req['price']
-        book = Books(title=title, author=author, stock=stock, price=price)
+        book = Books(author=author, title=title, stock=stock, price=price, total_stock=stock)
         book.save()
         return JsonResponse({'status': 201, 'message': 'Book added successfully'})
     except Exception as e:
@@ -58,7 +60,7 @@ def update_book(request):
 def get_books(request):
     try:
         books = Books.objects.all()
-        books = [book.__dict__ for book in books]
+        books = [book.dict() for book in books]
         return JsonResponse({'status': 201, 'message': 'Books fetched successfully', 'books': books})
     except Exception as e:
         return JsonResponse({'status': 400, 'message': 'Error fetching books: ' + str(e)})
@@ -69,7 +71,7 @@ def get_book(request):
     try:
         book_id = req['book_id']
         book = Books.objects.get(book_id=book_id)
-        return JsonResponse({'status': 201, 'message': 'Book fetched successfully', 'book': book.__dict__})
+        return JsonResponse({'status': 201, 'message': 'Book fetched successfully', 'book': book.dict()})
     except Exception as e:
         return JsonResponse({'status': 400, 'message': 'Error fetching book: ' + str(e)})
 
@@ -151,9 +153,9 @@ def get_user_history(request):
         user_id = req['user_id']
         user = User.objects.get(id=user_id)
         library = Library.objects.filter(user=user)
-        library = [lib.__dict__ for lib in library]
+        library = [lib.dict() for lib in library]
         userVisits = UserVisit.objects.filter(user=user)
-        userVisits = [userVisit.__dict__ for userVisit in userVisits]
+        userVisits = [userVisit.dict() for userVisit in userVisits]
         return JsonResponse({'status': 201, 'message': 'User history fetched successfully', 'book_history': library, 'user_visit_history': userVisits})
     except Exception as e:
         return JsonResponse({'status': 400, 'message': 'Error fetching user history: ' + str(e)})
@@ -165,7 +167,7 @@ def get_book_history(request):
         book_id = req['book_id']
         book = Books.objects.get(book_id=book_id)
         library = Library.objects.filter(book=book)
-        library = [lib.__dict__ for lib in library]
+        library = [lib.dict() for lib in library]
         return JsonResponse({'status': 201, 'message': 'Book history fetched successfully', 'history': library})
     except Exception as e:
         return JsonResponse({'status': 400, 'message': 'Error fetching book history: ' + str(e)})
