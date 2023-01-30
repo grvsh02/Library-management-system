@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import DataTable from "react-data-table-component";
 import StatusTag from "@/src/common/components/statusTag";
+import axios from "axios";
 
 const customStyles = {
     rows: {
@@ -23,29 +24,22 @@ const customStyles = {
     },
 };
 
-const QUERY = `
-      query ($keyword: String){
-        users(keyword: $keyword){
-            users{
-                id
-                email
-                firstName
-                lastName
-                isBanned
-                phone
-                status
-                role
-                createdAt
-            }
-        }
-      }`;
-
-
 const BooksTable = ({keyword = ""}) => {
 
-    const [users, setUsers] = React.useState(null);
+    const [books, setBooks] = React.useState(null);
     const [error, setError] = React.useState(null);
     const [reload, setReload] = React.useState(false);
+
+    const fetchBooks = async () => {
+        const res = await axios.get('http://127.0.0.1:8000/api/books/get/');
+        console.log(res);
+        const data = await res?.data?.books;
+        setBooks(data);
+    }
+
+    useEffect(() => {
+        fetchBooks();
+    }, [keyword, reload])
 
     const columns = [
         {
@@ -94,11 +88,11 @@ const BooksTable = ({keyword = ""}) => {
         return <p>Error :(</p>;
     }
 
-    if (users) {
+    if (books) {
         return (
             <DataTable
                 columns={columns}
-                data={users}
+                data={books}
                 highlightOnHover={true}
                 customStyles={customStyles}
                 pagination={true}
