@@ -2,6 +2,8 @@ import React, {useEffect} from "react";
 import DataTable from "react-data-table-component";
 import StatusTag from "@/src/common/components/statusTag";
 import axios from "axios";
+import {router} from "next/client";
+import {useRouter} from "next/router";
 
 const customStyles = {
     rows: {
@@ -30,11 +32,21 @@ const BooksTable = ({keyword = ""}) => {
     const [error, setError] = React.useState(null);
     const [reload, setReload] = React.useState(false);
 
+    const router = useRouter();
+
     const fetchBooks = async () => {
         const res = await axios.get('http://127.0.0.1:8000/api/books/get/');
         console.log(res);
         const data = await res?.data?.books;
         setBooks(data);
+    }
+
+    const handleDelete = async (id: any) => {
+        const res = await axios.post('http://127.0.0.1:8000/api/books/remove/', {
+            book_id: id
+        });
+        console.log(res.data)
+        setReload(!reload)
     }
 
     useEffect(() => {
@@ -75,8 +87,8 @@ const BooksTable = ({keyword = ""}) => {
             selector: (row: any) => {
                 return (
                     <div className="flex items-center">
-                        <i className="fa-solid fa-pen-to-square"></i>
-                        <i className="fa-solid fa-trash-can ml-4"></i>
+                        <i className="fa-solid fa-pen-to-square" onClick={() => router.push(`/books/edit/${row.book_id}`) }></i>
+                        <i className="fa-solid fa-trash-can ml-4" onClick={() => handleDelete(row.book_id)}></i>
                     </div>
                 )
             },

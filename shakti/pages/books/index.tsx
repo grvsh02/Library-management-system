@@ -6,11 +6,14 @@ import UserTable from "@/src/common/components/table";
 import Layout from "@/src/common/components/layout";
 import Button from "@/src/common/components/button";
 import {router} from "next/client";
+import {useRouter} from "next/router";
 
 const ViewPage = () => {
 
     const [isOpen, setIsOpen] = React.useState(false);
     const [keyword, setKeyword] = React.useState('');
+
+    const router = useRouter();
 
     useEffect(() => {}, [keyword])
 
