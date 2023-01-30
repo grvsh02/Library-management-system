@@ -13,9 +13,9 @@ const Searchbar = ({keyword, onSearch = () => {}}: SearchbarProps) => {
     }
 
     return (
-        <div className="w-2/5 h-12 flex bg-white relative">
-            <input className="min-w-full pl-8" onChange={handleSearch} value={keyword} placeholder="Search by Name, email or phone no. "></input>
-            <i className="fa-solid fa-magnifying-glass"></i>
+        <div className="w-2/5 h-12 flex bg-white relative border-2 border-[#fff] border-b-slate-700 flex justify-center items-center">
+            <input className="min-w-full pl-8 outline-0" onChange={handleSearch} value={keyword} placeholder="Search "></input>
+            <i className="fa-solid fa-magnifying-glass "></i>
         </div>
     )
 }

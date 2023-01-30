@@ -23,11 +23,11 @@ const ViewPage = () => {
             <div className="w-full">
                 <div className="m-10">
                     <div className="text-4xl font-semibold">All Books</div>
-                    <div className="w-full flex justify-between mt-10">
+                    <Card className="w-full flex justify-between mt-10 p-4">
                         <Button onClick={() => {router.push("/books/add")}}>Add Books</Button>
                         <Searchbar onSearch={setKeyword}/> {/* add onSearch parameter and add a function to call api for searching*/}
                         <Button>Export as XLSX</Button>
-                    </div>
+                    </Card>
                     <div>
                         <Card className="mt-10 p-5">
                             <div>
