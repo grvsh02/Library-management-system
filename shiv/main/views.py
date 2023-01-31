@@ -1,5 +1,6 @@
 import json
 from datetime import datetime, timedelta, timezone
+from django.core import serializers
 
 from django.contrib.auth.models import User
 from django.http import JsonResponse
@@ -172,3 +173,17 @@ def get_book_history(request):
     except Exception as e:
         return JsonResponse({'status': 400, 'message': 'Error fetching book history: ' + str(e)})
 
+
+def get_users(request):
+    try:
+        users = User.objects.all()
+        data = {}
+        for user in users:
+            user_data = {
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "username": user.username,
+            }
+        return JsonResponse({'status': 201, 'message': 'Users fetched successfully', 'users': users})
+    except Exception as e:
+        return JsonResponse({'status': 400, 'message': 'Error fetching users: ' + str(e)})
