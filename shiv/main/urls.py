@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^user/visit/in/$', views.user_visit_in, name="user_visit_in"),
     url(r'^user/visit/out/$', views.user_visit_out, name="user_visit_out"),
     url(r'^user/visit/history/$', views.get_user_history, name="get_user_history"),
+    url(r'^users/get/$', views.get_users, name="get_users"),
 ]

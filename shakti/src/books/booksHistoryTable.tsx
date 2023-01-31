@@ -44,7 +44,9 @@ const BookHistoryTable = ({id = ""}: any) => {
 
 
     useEffect(() => {
-        fetchBookHistory();
+        if (id){
+            fetchBookHistory();
+        }
     }, [id, reload])
 
     const columns = [

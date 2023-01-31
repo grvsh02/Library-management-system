@@ -177,13 +177,23 @@ def get_book_history(request):
 def get_users(request):
     try:
         users = User.objects.all()
-        data = {}
+        data = []
         for user in users:
+            visits = UserVisit.objects.filter(user=user).first()
+            lib = Library.objects.filter(user=user)
+            total_fine = 0
+            for l in lib:
+                if l.fine:
+                    total_fine += l.fine
             user_data = {
                 "first_name": user.first_name,
                 "last_name": user.last_name,
                 "username": user.username,
+                "last_visit": visits.time_in if visits else None,
+                "banned": False,
+                "fine": total_fine
             }
-        return JsonResponse({'status': 201, 'message': 'Users fetched successfully', 'users': users})
+            data.append(user_data)
+        return JsonResponse({'status': 201, 'message': 'Users fetched successfully', 'users': data})
     except Exception as e:
         return JsonResponse({'status': 400, 'message': 'Error fetching users: ' + str(e)})
