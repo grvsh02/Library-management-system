@@ -108,7 +108,7 @@ const BooksTable = ({keyword = ""}) => {
                 highlightOnHover={true}
                 customStyles={customStyles}
                 pagination={true}
-                // onRowClicked={(row) => {navigate('/user/' + row.id)}}
+                onRowClicked={(row) => router.push(`/book/${row.book_id}`)}
             />
         );
     }

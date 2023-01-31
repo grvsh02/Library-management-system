@@ -7,6 +7,7 @@ import Layout from "@/src/common/components/layout";
 import Button from "@/src/common/components/button";
 import {router} from "next/client";
 import {useRouter} from "next/router";
+import BooksTable from "@/src/common/components/table";
 
 const ViewPage = () => {
 
@@ -31,7 +32,7 @@ const ViewPage = () => {
                     <div>
                         <Card className="mt-10 p-5">
                             <div>
-                                <UserTable keyword={keyword} />
+                                <BooksTable />
                             </div>
                         </Card>
                     </div>

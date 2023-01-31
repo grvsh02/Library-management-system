@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Card from "@/src/common/components/card";
-import LabelTextInput from "@/src/common/labelTextInput";
+import LabelTextInput from "@/src/common/components/labelTextInput";
 
 import Button from "@/src/common/components/button";
 
