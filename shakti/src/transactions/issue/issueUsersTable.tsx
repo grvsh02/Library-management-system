@@ -80,7 +80,7 @@ const UserTable = ({setUser}: any) => {
                 highlightOnHover={true}
                 customStyles={customStyles}
                 pagination={true}
-                onRowClicked={(row) => setUser(row.username)}
+                onRowClicked={(row) => setUser(row)}
             />
         );
     }
