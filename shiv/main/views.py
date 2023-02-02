@@ -101,13 +101,13 @@ def user_visit_out(request):
     except Exception as e:
         return JsonResponse({'status': 400, 'message': "Error recording user's visit: " + str(e)})
 
-
+@csrf_exempt
 def issue_book(request):
     req = json.loads(request.body)
     try:
-        user_id = req['user_id']
+        username = req['username']
         book_id = req['book_id']
-        user = User.objects.get(id=user_id)
+        user = User.objects.get(username=username)
         book = Books.objects.get(book_id=book_id)
         if book.stock > 0:
             book.stock -= 1
