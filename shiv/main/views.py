@@ -135,6 +135,7 @@ def return_book(request):
         book = Books.objects.get(book_id=book_id)
         library = Library.objects.filter(user=user, book=book, returned_on=None).first()
         library.returned_on = datetime.now(timezone.utc)
+        library.is_returned = True
         if library.returned_on > library.return_date:
             library.fine = (library.returned_on - library.return_date).days * 10
         library.save()
