@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^user/visit/history/$', views.get_user_history, name="get_user_history"),
     url(r'^users/get/$', views.get_users, name="get_users"),
     url(r'^histories/get/$', views.get_transaction_history, name="get_transaction_history"),
+    url(r'^books/pending/return/get/$', views.get_books_to_be_returned, name="get_books_to_be_returned"),
 ]

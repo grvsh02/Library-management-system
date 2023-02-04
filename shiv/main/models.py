@@ -51,6 +51,7 @@ class Library(models.Model):
             'transaction_id': self.transaction_id,
             'user': self.user.username,
             'book': self.book.title,
+            'book_details': self.book.dict(),
             'issued_on': self.issued_on,
             'returned_on': self.returned_on,
             'is_returned': self.is_returned,

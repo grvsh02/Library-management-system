@@ -125,13 +125,13 @@ def issue_book(request):
     except Exception as e:
         return JsonResponse({'status': 400, 'message': 'Error issuing book: ' + str(e)})
 
-
+@csrf_exempt
 def return_book(request):
     req = json.loads(request.body)
     try:
-        user_id = req['user_id']
+        user_id = req['username']
         book_id = req['book_id']
-        user = User.objects.get(id=user_id)
+        user = User.objects.get(username=user_id)
         book = Books.objects.get(book_id=book_id)
         library = Library.objects.filter(user=user, book=book, returned_on=None).first()
         library.returned_on = datetime.now(timezone.utc)
@@ -206,3 +206,12 @@ def get_transaction_history(request):
         return JsonResponse({'status': 201, 'message': 'Transaction history fetched successfully', 'history': library})
     except Exception as e:
         return JsonResponse({'status': 400, 'message': 'Error fetching transaction history: ' + str(e)})
+
+
+def get_books_to_be_returned(request):
+    try:
+        library = Library.objects.filter(returned_on=None)
+        library = [lib.dict() for lib in library]
+        return JsonResponse({'status': 201, 'message': 'Books to be returned fetched successfully', 'books': library})
+    except Exception as e:
+        return JsonResponse({'status': 400, 'message': 'Error fetching books to be returned: ' + str(e)})
