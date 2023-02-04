@@ -27,7 +27,7 @@ const IssueBook = () => {
             username: user.username,
         });
         console.log(res.data)
-        router.push('/books')
+        router.push('/')
     }
 
     var today: any = new Date();
@@ -36,15 +36,6 @@ const IssueBook = () => {
     var yyyy = today.getFullYear();
 
     today = mm + '/' + dd + '/' + yyyy;
-
-    useEffect(() => {
-        console.log(book)
-        console.log(user)
-        console.log(issueOpen)
-        console.log(returnOpen)
-        console.log(typeof(issueDate))
-        console.log(returnDate)
-    }, [book, user, issueOpen, returnOpen, returnDate, issueDate])
 
     return (
         <Layout>
