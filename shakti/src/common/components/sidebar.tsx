@@ -1,13 +1,32 @@
 import React, {useEffect} from 'react';
 import Avatar from "@/src/common/components/avatar";
+import {keyTabMap, pathTabMap} from "@/src/common/config/sidebarConfig";
+import {useRouter} from "next/router";
 
 const Sidebar = () => {
 
     const [selected, setSelected] = React.useState("");
 
-    useEffect(() => {
+    const router = useRouter();
 
-    }   , [selected])
+    const getKeyFromPath = () => {
+        const path = router.pathname;
+        let pathList = path.split('/');
+        let basePath = '/';
+        if (pathList.length > 1) basePath = `/${pathList[1]}`;
+        if (pathTabMap.has(basePath)) {
+            return pathTabMap.get(basePath)!.key;
+        }
+        return undefined;
+    };
+
+    const updateRoute = (key: string) => {
+        if (!keyTabMap.has(key)) return;
+        const newTab = keyTabMap.get(key)!;
+        router.push(`${newTab.path}`);
+    };
+
+    useEffect(() => {}, [selected])
 
     return (
         <div className="flex flex-col justify-start items-center fixed w-72 h-full bg-[#222d32] shadow-md">
@@ -31,7 +50,10 @@ const Sidebar = () => {
                 <div className="my-6">
                     <div
                         className={`font-semibold flex justify-center hover:cursor-pointer items-center h-12 text-slate-200 my-5 border-[#222d32] border-4 w-full pr-16 ${selected === "dashboard" ? "border-l-cyan-400" : "hover:border-l-cyan-400"}`}
-                        onClick={() => setSelected("dashboard")}
+                        onClick={() => {
+                            setSelected("dashboard");
+                            updateRoute("dashboard");
+                        }}
                     >
                         <i className="fa-sharp fa-solid fa-house"></i><span className="ml-6">Dashboard</span>
                     </div>
@@ -48,7 +70,10 @@ const Sidebar = () => {
                             <div className="flex flex-col w-full mr-4 bg-[#2C3B41]">
                                 <div
                                     className={`font-semibold flex hover:cursor-pointer justify-center items-center h-12 text-slate-200 my-2 border-4 border-[#2C3B41] w-full ${selected === "issue" ? "border-l-cyan-400" : "hover:border-l-cyan-400"}`}
-                                    onClick={() => setSelected("issue")}
+                                    onClick={() => {
+                                        setSelected("issue")
+                                        updateRoute("issue");
+                                    }}
                                 >
                                     <i className="fa-solid fa-right-left"></i><span className="ml-6">Issue</span>
                                 </div>
@@ -74,7 +99,10 @@ const Sidebar = () => {
                             <div className="flex flex-col w-full mr-4 bg-[#2C3B41]">
                                 <div
                                     className={`font-semibold flex hover:cursor-pointer justify-center items-center h-12 text-slate-200 my-2 border-4 border-[#2C3B41] w-full ${selected === "manage_books" ? "border-l-cyan-400" : "hover:border-l-cyan-400"}`}
-                                    onClick={() => setSelected("manage_books")}
+                                    onClick={() => {
+                                        setSelected("manage_books");
+                                        updateRoute("books");
+                                    }}
                                 >
                                     <i className="fa-solid fa-right-left"></i><span className="ml-6">Manage</span>
                                 </div>
@@ -94,7 +122,10 @@ const Sidebar = () => {
                             <div className="flex flex-col w-full mr-4 bg-[#2C3B41]">
                                 <div
                                     className={`font-semibold flex hover:cursor-pointer justify-center items-center h-12 text-slate-200 my-2 border-4 border-[#2C3B41] w-full ${selected === "manage_students" ? "border-l-cyan-400" : "hover:border-l-cyan-400"}`}
-                                    onClick={() => setSelected("students")}
+                                    onClick={() => {
+                                        setSelected("students");
+                                        updateRoute("students");
+                                    }}
                                 >
                                     <i className="fa-solid fa-right-left"></i><span className="ml-6">Manage</span>
                                 </div>
