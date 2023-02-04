@@ -9,6 +9,7 @@ import ProfileCard from "@/src/common/components/profileCard";
 import Button from "@/src/common/components/button";
 import axios from "axios";
 import {useRouter} from "next/router";
+import {toast} from "react-toastify";
 
 const IssueBook = () => {
 
@@ -27,7 +28,32 @@ const IssueBook = () => {
             username: user.username,
         });
         console.log(res.data)
-        router.push('/')
+        if (res.data.success) {
+            toast.error('Book issued successfully !', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            router.push('/')
+        }
+        else{
+            toast.error('Error issuing book !', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+
     }
 
     var today: any = new Date();

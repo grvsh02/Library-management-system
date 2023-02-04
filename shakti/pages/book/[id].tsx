@@ -5,6 +5,7 @@ import axios from "axios";
 import {useRouter} from "next/router";
 import Layout from "@/src/common/components/layout";
 import BookHistoryTable from "@/src/books/booksHistoryTable";
+import {toast} from "react-toastify";
 
 const BookDetails = () => {
 
@@ -38,6 +39,31 @@ const BookDetails = () => {
             book_id: id
         });
         console.log(res.data)
+        if (res?.data?.success) {
+            toast.success('Book returned successfully !', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            router.push('/books')
+        }
+        else{
+            toast.error('Error returning book !', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
 
     }
 

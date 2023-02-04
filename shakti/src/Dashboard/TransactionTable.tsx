@@ -3,6 +3,7 @@ import DataTable from "react-data-table-component";
 import StatusTag from "@/src/common/components/statusTag";
 import axios from "axios";
 import {useRouter} from "next/router";
+import DashBoardStatusTag from "@/src/Dashboard/statusTag";
 
 const customStyles = {
     rows: {
@@ -75,7 +76,7 @@ const IssueBooksTable = ({setBook} : any) => {
         },
         {
             name: 'Status',
-            selector: (row: any) => <StatusTag status={row.is_returned ? "Available": "Not Available"}/>,
+            selector: (row: any) => <DashBoardStatusTag status={row.is_returned ? "Returned": row.fine ? "Due" : "Pending"}/>,
         },
     ]
 

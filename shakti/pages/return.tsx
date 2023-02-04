@@ -8,6 +8,7 @@ import Layout from "@/src/common/components/layout";
 import axios from "axios";
 import {useRouter} from "next/router";
 import ReturnBooksTable from "@/src/transactions/return/returnBookTable";
+import {toast} from "react-toastify";
 
 const ReturnBook = () => {
 
@@ -23,7 +24,31 @@ const ReturnBook = () => {
             username: user,
         });
         console.log(res.data)
-        router.push('/')
+        if (res.data) {
+            toast.success('Book returned successfully !', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            router.push('/')
+        }
+        else{
+            toast.error('Error returning book !', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
     }
 
     var today: any = new Date();

@@ -7,6 +7,7 @@ import Button from "@/src/common/components/button";
 import {Router, useRouter} from "next/router";
 import Layout from "@/src/common/components/layout";
 import axios from "axios";
+import {toast} from "react-toastify";
 
 export type UserProps = {
     firstName: string,
@@ -54,7 +55,31 @@ const AddPage = () => {
             price: book.price
         });
         console.log(res.data)
-        router.push('/books')
+        if (res.data) {
+            toast.success('Book updated successfully !', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            router.push('/books')
+        }
+        else{
+            toast.error('Error updating book !', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
     }
 
     return (
