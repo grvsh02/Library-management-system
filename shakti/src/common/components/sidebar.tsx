@@ -79,7 +79,10 @@ const Sidebar = () => {
                                 </div>
                                 <div
                                     className={`font-semibold flex hover:cursor-pointer justify-center items-center h-12 text-slate-200 my-2 border-4 border-[#2C3B41] w-full ${selected === "return" ? "border-l-cyan-400" : "hover:border-l-cyan-400"}`}
-                                    onClick={() => setSelected("return")}
+                                    onClick={() => {
+                                        setSelected("return")
+                                        updateRoute("return");
+                                    }}
                                 >
                                     <i className="fa-solid fa-right-left"></i><span className="ml-6">Return</span>
                                 </div>

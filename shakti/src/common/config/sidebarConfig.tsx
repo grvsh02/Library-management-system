@@ -30,11 +30,18 @@ const issuesTab: TabItemsProps = {
     path: "/issue",
 }
 
+const returnTab: TabItemsProps = {
+    label: "Return",
+    key: "return",
+    path: "/return",
+}
+
 export const pathTabMap: Map<string, TabItemsProps> = new Map([
     ["/", dashboardTab],
     ["/books", booksTab],
     ["/students", studentsTab],
-    ["issue", issuesTab],
+    ["/issue", issuesTab],
+    ["/return", returnTab],
 ]);
 
 export const keyTabMap: Map<string, TabItemsProps> = new Map([
@@ -42,4 +49,5 @@ export const keyTabMap: Map<string, TabItemsProps> = new Map([
     ["books", booksTab],
     ["students", studentsTab],
     ["issue", issuesTab],
+    ["return", returnTab],
 ]);
