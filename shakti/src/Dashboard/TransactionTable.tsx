@@ -92,7 +92,7 @@ const IssueBooksTable = ({setBook} : any) => {
                 highlightOnHover={true}
                 customStyles={customStyles}
                 pagination={true}
-                onRowClicked={(row) => setBook(row)}
+                onRowClicked={(row) => {}}
             />
         );
     }

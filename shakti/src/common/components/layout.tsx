@@ -9,7 +9,7 @@ const Layout = ({ children }: any) => {
             <Navbar />
             <Sidebar />
             <div className={'grow max-w-100 overflow-x-hidden transition-all duration-300 flex flex-col ml-72 mt-12'}>{children}</div>
-            <ToastContainer />
+            {/*<ToastContainer />*/}
         </div>
     );
 }
