@@ -1,6 +1,5 @@
 import json
 from datetime import datetime, timedelta, timezone
-from django.core import serializers
 
 from django.contrib.auth.models import User
 from django.http import JsonResponse
@@ -101,6 +100,7 @@ def user_visit_out(request):
     except Exception as e:
         return JsonResponse({'status': 400, 'message': "Error recording user's visit: " + str(e)})
 
+
 @csrf_exempt
 def issue_book(request):
     req = json.loads(request.body)
@@ -197,3 +197,12 @@ def get_users(request):
         return JsonResponse({'status': 201, 'message': 'Users fetched successfully', 'users': data})
     except Exception as e:
         return JsonResponse({'status': 400, 'message': 'Error fetching users: ' + str(e)})
+
+
+def get_transaction_history(request):
+    try:
+        library = Library.objects.all()
+        library = [lib.dict() for lib in library]
+        return JsonResponse({'status': 201, 'message': 'Transaction history fetched successfully', 'history': library})
+    except Exception as e:
+        return JsonResponse({'status': 400, 'message': 'Error fetching transaction history: ' + str(e)})
